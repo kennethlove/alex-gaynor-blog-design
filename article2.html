@@ -35,8 +35,9 @@
                 <p>The first thing that's important to know about BSON is that the first 4-bytes are the length of the entire document (in bytes) as a signed integer, little endian. msgpack has no specific prefix, the first bytes are merely the typecode for whatever the element is. At <a class="reference external" href="http://www.rdio.com/">Rdio</a>, we know something about our data though, because BSON requires all top-level elements to be dictionaries, and we're just re-serializing the same data, we know that all of these msgpacks will have dictionaries as the top level object.</p>
                 <p>Because a BSON blob starts with its size, in bytes, we're going to try to find the smallest possible 4-byte starting sequence (interpreted as an integer) one of our payloads could have, in order to determine what the smallest possible ambiguity is.</p>
                 <p>So the first case is the empty dictionary, in msgpack this is serialized as:</p>
-                <div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">msgpack</span><span class="o">.</span><span class="n">packb</span><span class="p">({})</span>
-                <span class="go">'\x80'</span>
+                <div class="highlight">
+                    <pre><span class="gp">&gt;&gt;&gt; </span><span class="n">msgpack</span><span class="o">.</span><span class="n">packb</span><span class="p">({})</span>
+<span class="go">'\x80'</span>
                 </pre></div>
                 <p>That's less than 4 bytes, and all BSONs are at least 4 bytes, so that can't be ambiguous. Now let's look at a dictionary with some content. Another thing we know about our payloads is that all the keys in the dictionaries are strings, and that the keys are alphanumeric or underscores. Looking at the <a class="reference external" href="http://wiki.msgpack.org/display/MSGPACK/Format+specification">msgpack spec</a>, the smallest key (interpreted as its serialized integer value) that could exist is <tt class="docutils literal">"0"</tt>, since <tt class="docutils literal">"0"</tt> has the lowest ASCII value of any letter, number, or underscore. Further, from the <a class="reference external" href="http://wiki.msgpack.org/display/MSGPACK/Format+specification">msgpack spec</a> we know that the number <tt class="docutils literal">0</tt> serializes as a single byte, so that will be the key's value.  Let's see where this gets us:</p>
                 <div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">msgpack</span><span class="o">.</span><span class="n">packb</span><span class="p">({</span><span class="s">"0"</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
@@ -61,6 +62,9 @@
                 </pre></div>
                 <p>If this sounds like a fun kind of the thing to do, you should <a class="reference external" href="http://www.rdio.com/careers/">apply to come work with me at Rdio</a>.</p>
 
+                <section class="comments">
+                    <p>Comments are never going to happen. Stop trying to make comments happen.</p>
+                </section>
             </article>
         </main>
 
