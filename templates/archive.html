@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ pagination.title|string|title }} - {{ site.name }}{% endblock %}
+
+{% block afterstyle %}
+    <meta name="description" content="{{ pagination.title|description }}">
+{% endblock %}
+
+{% block main %}
+    {% set year = 0 -%}
+    <section class="archive">
+        <ol>
+        {% for item in pagination.items %}
+            {%- if item.date.year != year %}
+                {% set year = item.date.year -%}
+                <li class="header">
+                    <h3><a href="{{ item|year_url }}">{{ item.date.year }}</a></h3>
+                </li>
+            {%- endif %}
+            <li>
+            <time datetime="{{ item.date|xmldatetime }}">{{ item.date.strftime('%Y-%m-%d') }}</time>
+            <span><a href="{{ item|permalink }}">{{ item.title }}</a></span>
+            </li>
+        {% endfor %}
+        </ol>
+        {% if pagination.has_prev or pagination.has_next %}
+            <nav class="pagination">
+                {% if pagination.has_prev %}
+                    <a href="{{ content_url(pagination.root, 'page', pagination.prev_num) }}">Prev</a>
+                {% endif %}
+                <span>{{ pagination.page }} / {{ pagination.pages }}</span>
+                {% if pagination.has_next %}
+                    <a href="{{ content_url(pagination.root, 'page', pagination.next_num) }}">Next</a>
+                {% endif %}
+            </nav>
+        {% endif %}
+    </section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <article>
+        <header>
+            <h1>404</h1>
+        </header>
+
+        {{ post.content }}
+
+        <section class="archive">
+            <div class="year">
+                <ol>
+                    {% for post in resource.posts[:6] %}
+                        <li>
+                            <time datetime="{{ post.date|xmldatetime }}">{{ post.date.strftime("%b, %d, %Y") }}</time>
+                            <span><a href="{{ post|permalink }}">{{ post.title }}</a></span>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </section>
+    </article>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ post.title }} - {{ site.name }}{% endblock %}
+{% block afterstyle %}
+    <link rel="canonical" href="{{ post|permalik }}">
+    {% if post.summary %}
+        <meta name="description" content="{{ post.summary }}">
+    {% endif %}
+{% endblock %}
+
+{% block main -%}
+    <article>
+        <header>
+            <h1>{{ post.title }}</h1>
+            <div class="meta">
+                <time class="updated" datetime="{{post.date|xmldatetime}}"{%if post.review%} itemprop="dtreviewed"{%endif%} pubdate><a href="{{ post|year_url }}">{{post.date.strftime('%Y-%m-%d')}}</a></time>
+                <span class="author vcard">
+                    {% if post.author.website -%}
+                    by <a class="url fn" href="{{post.author.website}}">{{post.author.name}}</a>
+                    {% else -%}
+                    by <span class="fn">{{post.author.name}}</span>
+                    {%- endif %}
+                </span>
+            </div>
+        </header>
+
+        {{ post.content }}
+
+        <section class="comments">
+            <p>Comments are never going to happen. Stop trying to make comments happen.</p>
+        </section>
+
+    </article>
+{% endblock -%}

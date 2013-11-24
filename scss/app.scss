@@ -22,7 +22,8 @@ a {
   }
 }
 
-main {
+main,
+.main {
   @include clearfix;
   @include span-columns(8);
   @include shift(2);
@@ -60,8 +61,8 @@ main {
 
   nav {
     @include clearfix;
-      width: 80%;
-      margin: 0 auto;
+    width: 80%;
+    margin: 0 auto;
 
     a {
       @include span-columns(3, 12);
@@ -87,15 +88,15 @@ main {
         width: 16px;
 
         &.home {
-          @include retina-image('../img/icons/house', 16px 16px);
+          @include retina-image('house', 16px 16px);
         }
 
         &.twitter {
-          @include retina-image('../img/icons/twitter', 16px 14px);
+          @include retina-image('twitter', 16px 14px);
         }
 
         &.link {
-          @include retina-image('../img/icons/link', 16px 16px);
+          @include retina-image('link', 16px 16px);
         }
       }
     }
@@ -103,42 +104,71 @@ main {
 }
 
 .archive {
-  .year {
-    @include clearfix;
-    border: 0 solid #999;
-    border-bottom-width: 2px;
-    margin-bottom: 2em;
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-    h3 {
-      @include span-columns(2);
-      margin-top: 0;
-      padding-top: 0;
+    li {
+      @include clearfix;
+      margin-bottom: $gutter;
+
+      &.header {
+        border: 0 solid #999;
+        border-bottom-width: 2px;
+        margin-bottom: 2em;
+
+        h3 {
+          @include span-columns(2);
+          margin-top: 0;
+          padding-top: 0;
+
+          a { border: 0; }
+        }
+      }
+
+      time {
+        @include span-columns(3);
+        color: #aaa;
+      }
+
+      span {
+        @include span-columns(9);
+      }
+    }
+  }
+
+  .pagination {
+    @include span-columns(6, 10);
+    @include shift(5);
+
+    span {
+      display: inline-block;
+      line-height: 0;
+      margin-bottom: golden-ratio(1em, -1);
+      padding: 14px 26px;
+      text-align: center;
     }
 
-    ol {
-      @include span-columns(10);
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    a {
+      background-color: #f00;
+      color: #fff;
+      display: inline-block;
+      line-height: 0;
+      margin-bottom: golden-ratio(1em, -1);
+      padding: 14px 26px;
+      text-align: center;
+      @include transition (all 0.5s ease-in-out);
 
-      li {
-        @include clearfix;
-        margin-bottom: $gutter;
-
-        time {
-          @include span-columns(2);
-          color: #aaa;
-        }
-
-        span {
-          @include span-columns(10);
-        }
+      &:hover {
+        background-color: #d00;
       }
     }
   }
 }
 
-article {
+article,
+.hentry {
   header {
     border-bottom: 2px solid #000;
     margin-bottom: 1.5em;

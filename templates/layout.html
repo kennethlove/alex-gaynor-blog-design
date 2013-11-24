@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="{{theme.lang}}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}{{site.name}}{% endblock %}</title>
+        <link rel="stylesheet" href="{{static_url('style.css')}}">
+        {% if site.feed -%}
+            <link rel="alternate" type="application/rss+xml" href="{{site.feed}}" title="{{site.name}}">
+        {% else %}
+            <link rel="alternate" type="application/rss+xml" href=" {{ content_url('feed.xml') }}" title="{{ site.name }}">
+        {%- endif %}
+        {% if theme.analytics -%}
+            <script type="text/javascript">
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', '{{theme.analytics}}']);
+              _gaq.push(['_trackPageview']);
+              _gaq.push(['_trackPageLoadTime']);
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+            </script>
+        {%- endif %}
+        {% block afterstyle %}{% endblock %}
+    </head>
+    <body>
+        <header class="site-header">
+            <h1>Hi, I&rsquo;m Alex</h1>
+            <nav>
+                <a href="index.html" title="Home"><span class="home">Home</span></a>
+                <a href="#" title="Twitter"><span class="twitter">Twitter</span></a>
+                <a href="#" title=""><span class="link">link</span></a>
+                <a href="#" title=""><span class="link">link</span></a>
+                <a href="#" title=""><span class="link">link</span></a>
+                <a href="#" title=""><span class="link">link</span></a>
+            </nav>
+        </header>
+
+        <main>
+            {%- block main %}{% enblock -%}
+        </main>
+        <footer class="site-footer">
+            <p>&copy; Alex Gaynor. Blah blah blah</p>
+        </footer>
+    </body>
+</html>
