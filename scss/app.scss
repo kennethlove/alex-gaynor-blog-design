@@ -2,6 +2,7 @@
 @import 'bourbon/bourbon';
 @import 'neat/neat';
 @import 'bitters/bitters';
+@import 'pygments';
 
 body {
   @include outer-container;
@@ -22,7 +23,7 @@ a {
 
 main {
   @include clearfix;
-  @include span-columns(8(;
+  @include span-columns(8);
   @include shift(2);
 }
 
@@ -157,6 +158,19 @@ article {
 
   section {
     margin-bottom: 1em;
+  }
+
+  pre {
+    background: #efefef;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.25em 0.5em;
+  }
+
+  tt {
+    background: #fd9;
+    border-radius: 5px;
+    padding: 0.25em;
   }
 
   .arabic {
