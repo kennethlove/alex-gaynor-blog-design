@@ -47,3 +47,7 @@ navigation = [
         'link': '/'
     }
 ]
+
+# Change this to control what shows up in the "no comments" block on post
+# templates.
+no_comments = "Comments are never going to happen. Stop trying to make comments happen."
