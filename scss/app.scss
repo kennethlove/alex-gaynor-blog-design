@@ -45,11 +45,12 @@ main,
   @include shift(3);
   border-top: 4px solid #000;
   margin-top: 2.5em;
+  padding-top: 0.75em;
 
   p {
     color: #aaa;
     font-size: 0.75em;
-    line-height: 1.5;
+    line-height: 2;
     text-align: center;
   }
 }
