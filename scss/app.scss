@@ -103,9 +103,11 @@ main,
   .buttons a {
     @include span-columns(3, 12);
     @include omega(4n);
+    @include clearfix;
     background-color: #f00;
+    box-sizing: border-box;
+    font-size: 0;
     line-height: 0;
-    padding: 14px 26px;
 
     &:hover {
       background-color: #d00;
@@ -117,34 +119,30 @@ main,
 
     i {
       display: inline-block;
+      font-size: golden-ratio(1rem, 1);
       position: relative;
-      min-height: 24px;
+      height: golden-ratio(1rem, 2);
+      width: 100%;
 
       &:before {
+        bottom: 0;
         color: #fff;
         content: attr(data-icon);
+        display: inline-block;
         font-family: 'fetch';
-        font-size: golden-ratio(1em, 1);
         font-style: normal;
-        line-height: 1;
+        left: 0;
+        line-height: 2;
+        margin-top: -0.25rem;
+        min-width: 1rem;
         position: absolute;
+        right: 0;
         speak: none;
+        top: 0;
         text-align: center;
-        width: golden-ratio(1em, 1);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-      }
 
-      &.home {
-        @include retina-image('house', 16px 16px);
-      }
-
-      &.twitter {
-        @include retina-image('twitter', 16px 14px);
-      }
-
-      &.link {
-        @include retina-image('link', 16px 16px);
       }
     }
   }
@@ -186,14 +184,13 @@ main,
   }
 
   .pagination {
-    @include span-columns(6, 10);
-    @include shift(4);
+    text-align: center;
 
     span {
       display: inline-block;
       line-height: 0;
-      margin-bottom: golden-ratio(1em, -1);
-      padding: 14px 26px;
+      margin-bottom: 10px;
+      padding: 15px 20px;
       text-align: center;
     }
 
@@ -202,8 +199,8 @@ main,
       color: #fff;
       display: inline-block;
       line-height: 0;
-      margin-bottom: golden-ratio(1em, -1);
-      padding: 14px 26px;
+      margin-bottom: 10px;
+      padding: 15px 20px;
       text-align: center;
       @include transition (all 0.5s ease-in-out);
 
