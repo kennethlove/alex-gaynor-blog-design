@@ -12,6 +12,12 @@ lang = 'en'
 
 analytics = None
 
+# buttons uses a custom icon font with only 5 special characters.
+# h - home icon
+# t - twitter icon
+# g - github icon
+# r - rdio icon
+# l - link icon
 buttons = [
     {
         'title': 'Home',
