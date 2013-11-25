@@ -263,14 +263,22 @@ article,
     padding: 0.25em;
   }
 
-  .arabic {
-    list-style: decimal outside;
+  ul, ol {
+    list-style-position: outside;
     margin: 0.5em auto;
     width: 80%;
 
     li {
       margin-bottom: 0.5em;
     }
+  }
+
+  ul {
+    list-style-type: square;
+  }
+
+  .arabic {
+    list-style-type: decimal;
   }
 
   footer {
