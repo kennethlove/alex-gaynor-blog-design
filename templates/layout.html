@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{% block title %}{{site.name}}{% endblock %}</title>
-        <link rel="stylesheet" href="{{static_url('style.css')}}">
+        <link rel="stylesheet" href="{{ static_url('fetch.css') }}">
         {% if site.feed -%}
             <link rel="alternate" type="application/rss+xml" href="{{site.feed}}" title="{{site.name}}">
         {% else %}
@@ -29,12 +29,12 @@
         <header class="site-header">
             <h1>Hi, I&rsquo;m Alex</h1>
             <nav>
-                <a href="index.html" title="Home"><span class="home">Home</span></a>
-                <a href="#" title="Twitter"><span class="twitter">Twitter</span></a>
-                <a href="#" title=""><span class="link">link</span></a>
-                <a href="#" title=""><span class="link">link</span></a>
-                <a href="#" title=""><span class="link">link</span></a>
-                <a href="#" title=""><span class="link">link</span></a>
+                {% for item in theme.buttons %}
+                    <a href="{{ item.link }}" title="{{ item.title }}">
+                        <i data-icon="{{ item.icon }}"></i>
+                        <span class="text">{{ item.title }}</span>
+                    </a>
+                {% endfor %}
             </nav>
         </header>
 

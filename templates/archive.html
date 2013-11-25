@@ -18,8 +18,8 @@
                 </li>
             {%- endif %}
             <li>
-            <time datetime="{{ item.date|xmldatetime }}">{{ item.date.strftime('%Y-%m-%d') }}</time>
-            <span><a href="{{ item|permalink }}">{{ item.title }}</a></span>
+                <time datetime="{{ item.date|xmldatetime }}">{{ item.date.strftime('%Y-%m-%d') }}</time>
+                <span><a href="{{ item|permalink }}">{{ item.title }}</a></span>
             </li>
         {% endfor %}
         </ol>
@@ -27,10 +27,14 @@
             <nav class="pagination">
                 {% if pagination.has_prev %}
                     <a href="{{ content_url(pagination.root, 'page', pagination.prev_num) }}">Prev</a>
+                {% else %}
+                    <span>Prev</span>
                 {% endif %}
                 <span>{{ pagination.page }} / {{ pagination.pages }}</span>
                 {% if pagination.has_next %}
                     <a href="{{ content_url(pagination.root, 'page', pagination.next_num) }}">Next</a>
+                {% else %}
+                    <span>Next</span>
                 {% endif %}
             </nav>
         {% endif %}

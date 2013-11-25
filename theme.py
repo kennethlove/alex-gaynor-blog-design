@@ -11,3 +11,26 @@ author = {
 lang = 'en'
 
 analytics = None
+
+buttons = [
+    {
+        'title': 'Home',
+        'link': '/',
+        'icon': 'h'
+    },
+    {
+        'title': 'Twitter',
+        'link': 'https://twitter.com/Alex_Gaynor',
+        'icon': 't'
+    },
+    {
+        'title': 'GitHub',
+        'link': 'https://github.com/alex',
+        'icon': 'g'
+    },
+    {
+        'title': 'Rdio',
+        'link': 'http://www.rdio.com/people/alex_gaynor/',
+        'icon': 'r'
+    }
+]
