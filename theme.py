@@ -34,3 +34,10 @@ buttons = [
         'icon': 'r'
     }
 ]
+
+navigation = [
+    {
+        'name': 'Home',
+        'link': '/'
+    }
+]

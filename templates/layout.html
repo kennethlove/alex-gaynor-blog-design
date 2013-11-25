@@ -28,12 +28,17 @@
     <body>
         <header class="site-header">
             <h1>Hi, I&rsquo;m Alex</h1>
-            <nav>
+            <nav class="buttons">
                 {% for item in theme.buttons %}
                     <a href="{{ item.link }}" title="{{ item.title }}">
                         <i data-icon="{{ item.icon }}"></i>
                         <span class="text">{{ item.title }}</span>
                     </a>
+                {% endfor %}
+            </nav>
+            <nav class="links">
+                {% for item in theme.navigation %}
+                    <a href="{{ item.link }}">{{ item.name }}</a>
                 {% endfor %}
             </nav>
         </header>
