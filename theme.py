@@ -25,11 +25,6 @@ buttons = [
         'icon': 'h'
     },
     {
-        'title': 'Twitter',
-        'link': 'https://twitter.com/Alex_Gaynor',
-        'icon': 't'
-    },
-    {
         'title': 'GitHub',
         'link': 'https://github.com/alex',
         'icon': 'g'
