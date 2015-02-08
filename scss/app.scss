@@ -280,6 +280,11 @@ article,
   .arabic {
     list-style-type: decimal;
   }
+  
+  .footnote-reference {
+    padding-left: .2em;
+    padding-right: .2em;
+  }
 
   footer {
     .tags {
