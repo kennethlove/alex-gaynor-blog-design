@@ -103,8 +103,8 @@ main,
   }
 
   .buttons a {
-    @include span-columns(3, 12);
-    @include omega(4n);
+    @include span-columns(4, 12);
+    @include omega(3n);
     @include clearfix;
     background-color: #f00;
     box-sizing: border-box;
