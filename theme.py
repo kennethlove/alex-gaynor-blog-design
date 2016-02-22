@@ -29,11 +29,6 @@ buttons = [
         'link': 'https://github.com/alex',
         'icon': 'g'
     },
-    {
-        'title': 'Rdio',
-        'link': 'http://www.rdio.com/people/alex_gaynor/',
-        'icon': 'r'
-    }
 ]
 
 navigation = [
