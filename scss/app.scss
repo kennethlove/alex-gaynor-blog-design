@@ -1,8 +1,15 @@
+/* Normalize */
 @import 'normalize';
+
+/* Bourbon, Neat, and Bitters */
 @import 'bourbon/bourbon';
 @import 'neat/neat';
-@import 'bitters/bitters';
+@import 'base/base';
+
+/* Pygments */
 @import 'pygments';
+
+/* Alex */
 
 @font-face {
     font-family: 'fetch';
@@ -103,8 +110,8 @@ main,
   }
 
   .buttons a {
-    @include span-columns(4, 12);
-    @include omega(3n);
+    @include span-columns(6, 12);
+    @include omega(2n);
     @include clearfix;
     background-color: #f00;
     box-sizing: border-box;
