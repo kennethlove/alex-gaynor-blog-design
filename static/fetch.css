@@ -972,6 +972,9 @@ article ul,
 article .arabic,
 .hentry .arabic {
   list-style-type: decimal; }
+article .footnote .label,
+.hentry .footnote .label {
+  width: 2em; }
 article .footnote-reference,
 .hentry .footnote-reference {
   padding-left: .2em;
