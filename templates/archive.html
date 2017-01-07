@@ -10,17 +10,16 @@
     {% set year = 0 -%}
     <section class="archive">
         <ol>
-        {% for item in pagination.items %}
-            {%- if item.date.year != year %}
-                {% set year = item.date.year -%}
-                <li class="header">
-                    <h3><a href="{{ item|year_url }}">{{ item.date.year }}</a></h3>
-                </li>
-            {%- endif %}
-            <li>
-                <time datetime="{{ item.date|xmldatetime }}">{{ item.date.strftime('%Y-%m-%d') }}</time>
-                <span><a href="{{ item|permalink }}">{{ item.title }}</a></span>
+        {% for year, items in pagination.items|groupby("date.year")|reverse %}
+            <li class="header">
+                <h3><a href="{{ items[0]|year_url }}">{{ year }}</a></h3>
             </li>
+            {% for item in items %}
+                <li>
+                    <time datetime="{{ item.date|xmldatetime }}">{{ item.date.strftime('%Y-%m-%d') }}</time>
+                    <span><a href="{{ item|permalink }}">{{ item.title }}</a></span>
+                </li>
+            {% endfor %}
         {% endfor %}
         </ol>
         {% if pagination.has_prev or pagination.has_next %}
