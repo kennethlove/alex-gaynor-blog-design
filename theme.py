@@ -38,6 +38,5 @@ navigation = [
     }
 ]
 
-# Change this to control what shows up in the "no comments" block on post
-# templates.
-no_comments = "Comments are never going to happen. Stop trying to make comments happen."
+post_about_image = ""
+post_about_text = ""

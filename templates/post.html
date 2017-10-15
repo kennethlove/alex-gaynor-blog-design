@@ -26,8 +26,10 @@
 
         {{ post.content }}
 
-        <section class="comments">
-            <p>{{ theme.no_comments }}</p>
+        <hr />
+        <section class="about">
+            <img src="{{theme.post_about_image}}" style="float: left" />
+            <p style="padding-left: 7em;">{{theme.post_about_text}}</p>
         </section>
 
     </article>
