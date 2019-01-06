@@ -6,6 +6,10 @@
     {% if post.summary %}
         <meta name="description" content="{{ post.summary }}">
     {% endif %}
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ site.url }}{{ post|permalink }}">
+    <meta property="og:title" content="{{ post.title }}">
+    <meta property="og:image" content="{{ site.url }}{{ theme.post_about_image }}">
 {% endblock %}
 
 {% block main -%}
