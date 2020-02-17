@@ -728,6 +728,10 @@ a {
     color: #f00;
     border-bottom-style: solid; }
 
+blockquote {
+  border-left: 2px solid #aaa;
+  padding-left: .75em; }
+
 main,
 .main {
   float: left;
